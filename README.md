@@ -1,28 +1,40 @@
-# Spaceflight News Analysis & Feature Engineering
+# Natural Language Processing & Feature Engineering Task
 
-Repositori ini berisi proyek Natural Language Processing (NLP) dan Web Scraping menggunakan Python. Proyek ini mencakup alur kerja end-to-end dari pengambilan data berita via API, text preprocessing, hingga feature engineering menggunakan statistik dan word embeddings (Word2Vec & FastText) serta visualisasi UMAP.
+Repositori ini berisi notebook Python untuk melakukan pengolahan data berbasis teks menggunakan dua metode utama: Text Preprocessing dan Feature Engineering.
 
-## Fitur Utama
+---
 
-- Web Scraping via API: Mengambil data artikel berita antariksa dari Spaceflight News API v4.
-- Text Preprocessing:
-  - Pembersihan HTML tags, URL, hashtag, angka, dan tanda baca.
-  - Normalisasi teks ke lowercase.
-  - Stopwords removal dan Stemming.
-- Feature Engineering:
-  - TF-IDF Vectorization (scikit-learn) untuk ekstraksi bobot kata.
-  - Word2Vec Embedding (gensim) untuk pemetaan vektor kata berdasarkan konteks.
-  - FastText Embedding (gensim) untuk penanganan n-gram sub-kata.
-  - Document Vector Aggregation (mean pooling) untuk representasi level dokumen.
-- Data Visualization: Reduksi dimensi vektor kata menggunakan UMAP dan Plotly.
+## Deskripsi Proyek
 
-## Teknologi & Library
+Notebook ini terbagi menjadi dua bagian utama:
 
-- Python 3.x
-- Pandas & NumPy
-- Requests & JSON
-- NLTK & Scikit-Learn
-- Gensim (Word2Vec & FastText)
-- UMAP-Learn & Plotly
+### 1. Text Preprocessing
+- Pembersihan Teks: Menghapus tag HTML, URL, hashtag, tanda baca, dan angka menggunakan Regular Expression (re).
+- Normalisasi Teks: Mengubah seluruh teks menjadi huruf kecil (lowercasing).
+- Filtering & Stemming: Menghapus stopwords dan melakukan stemming pada teks.
+- Output: spaceflight_preprocessed.csv berisi teks hasil preprocessing.
 
-git clone [https://github.com/ichameisyak-sudo/Future-Engineering-.git](https://github.com/ichameisyak-sudo/Future-Engineering-.git)
+### 2. Feature Engineering & Embeddings
+- TF-IDF Vectorization: Mengubah teks menjadi matriks bobot TF-IDF menggunakan scikit-learn.
+- Word Embeddings (Word2Vec & FastText): Memetakan kata ke dalam ruang vektor kontinu menggunakan gensim.
+- Document Vector Aggregation: Menghitung rata-rata vektor kata (mean pooling) untuk representasi level dokumen.
+- Visualisasi UMAP: Mereduksi dimensi vektor kata menjadi 2D dan memvisualisasikannya secara interaktif menggunakan Plotly.
+
+---
+
+## Library yang Digunakan
+
+- pandas — Menyusun dan menampilkan data dalam bentuk tabular (DataFrame).
+- numpy — Pemrosesan data array dan operasi vektor.
+- nltk — Pemrosesan bahasa alami (tokenisasi, stopwords).
+- scikit-learn — Ekstraksi fitur teks menggunakan TF-IDF.
+- gensim — Membangun model Word2Vec dan FastText.
+- umap-learn — Reduksi dimensi fitur kata.
+- plotly — Visualisasi grafik interaktif.
+
+---
+
+## Cara Menjalankan
+
+1. Clone repositori ini:
+   git clone https://github.com/ichameisyak-sudo/Web-Scraping.git
