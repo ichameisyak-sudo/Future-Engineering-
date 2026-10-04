@@ -25,5 +25,4 @@ Repositori ini berisi proyek Natural Language Processing (NLP) dan Web Scraping 
 - Gensim (Word2Vec & FastText)
 - UMAP-Learn & Plotly
 
-git clone [https://github.com/USERNAME_KAMU/NAMA_REPO_KAMU.git](https://github.com/USERNAME_KAMU/NAMA_REPO_KAMU.git)
-cd NAMA_REPO_KAMU
+git clone [https://github.com/ichameisyak-sudo/Future-Engineering-.git](https://github.com/ichameisyak-sudo/Future-Engineering-.git)
