@@ -1,6 +1,6 @@
-# Natural Language Processing & Feature Engineering Task
+# Spaceflight News Feature Engineering Task
 
-Repositori ini berisi notebook Python untuk melakukan pengolahan data berbasis teks menggunakan dua metode utama: Text Preprocessing dan Feature Engineering.
+Repositori ini berisi notebook Python untuk melakukan ekstraksi data berita dari Spaceflight News API serta pembentukan fitur berbasis Word Embeddings (Word2Vec & FastText), agregasi vektor dokumen, dan visualisasi reduksi dimensi UMAP.
 
 ---
 
@@ -8,29 +8,28 @@ Repositori ini berisi notebook Python untuk melakukan pengolahan data berbasis t
 
 Notebook ini terbagi menjadi dua bagian utama:
 
-### 1. Text Preprocessing
-- Pembersihan Teks: Menghapus tag HTML, URL, hashtag, tanda baca, dan angka menggunakan Regular Expression (re).
-- Normalisasi Teks: Mengubah seluruh teks menjadi huruf kecil (lowercasing).
-- Filtering & Stemming: Menghapus stopwords dan melakukan stemming pada teks.
-- Output: spaceflight_preprocessed.csv berisi teks hasil preprocessing.
+### 1. Ekstraksi Data & Tokenisasi
+- Mengambil data ringkasan artikel berita antariksa dari Spaceflight News API (SNAPI v4).
+- Mengubah teks ringkasan (summary) menjadi bentuk Lowercase dan melakukan Tokenisasi Kata (word tokenization) menggunakan NLTK.
+- Output: Daftar token kalimat (sentences) yang siap diproses untuk pembentukan embedding.
 
-### 2. Feature Engineering & Embeddings
-- TF-IDF Vectorization: Mengubah teks menjadi matriks bobot TF-IDF menggunakan scikit-learn.
-- Word Embeddings (Word2Vec & FastText): Memetakan kata ke dalam ruang vektor kontinu menggunakan gensim.
-- Document Vector Aggregation: Menghitung rata-rata vektor kata (mean pooling) untuk representasi level dokumen.
-- Visualisasi UMAP: Mereduksi dimensi vektor kata menjadi 2D dan memvisualisasikannya secara interaktif menggunakan Plotly.
+### 2. Feature Engineering & Word Embeddings
+- Model Word2Vec: Membangun model Word2Vec (Skip-Gram/CBOW) berdimensi 100 dengan Gensim, menyimpan model ke space_news.w2v, dan menampilkan analisis kata mirip (similar words).
+- Model FastText: Membangun model FastText dengan n-gram sub-word (3-6) berdimensi 100, menyimpan model ke space_news.fasttext, dan melakukan pencarian kata mirip.
+- Document Vector Aggregation: Menghitung nilai rata-rata vektor kata (mean pooling) dari setiap dokumen ringkasan untuk menghasilkan matriks fitur tingkat dokumen (df_w2v & df_ft).
+- Visualisasi UMAP: Mereduksi dimensi vektor kata menjadi 2D (umap1, umap2) dan memvisualisasikan sebaran kata secara interaktif menggunakan Plotly.
 
 ---
 
 ## Library yang Digunakan
 
-- pandas — Menyusun dan menampilkan data dalam bentuk tabular (DataFrame).
-- numpy — Pemrosesan data array dan operasi vektor.
-- nltk — Pemrosesan bahasa alami (tokenisasi, stopwords).
-- scikit-learn — Ekstraksi fitur teks menggunakan TF-IDF.
-- gensim — Membangun model Word2Vec dan FastText.
-- umap-learn — Reduksi dimensi fitur kata.
-- plotly — Visualisasi grafik interaktif.
+- requests — Mengambil data ringkasan artikel dari Spaceflight News API.
+- pandas — Mengolah dan menyusun data ke dalam bentuk DataFrame.
+- numpy — Melakukan kalkulasi rata-rata vektor (mean pooling) dokumen.
+- nltk — Melakukan tokenisasi kata (word_tokenize).
+- gensim — Membangun, menyimpan, dan memuat model Word2Vec dan FastText.
+- umap-learn — Mereduksi dimensi vektor kata menjadi 2D.
+- plotly — Memvisualisasikan scatter plot kata secara interaktif.
 
 ---
 
